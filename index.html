@@ -1,0 +1,89 @@
+<html>
+<body>
+
+<input type="text" id="password">
+
+<div id="possible">
+</div>
+
+<script>
+
+var passwords = [
+	"about",
+	"after",
+	"again",
+	"below",
+	"could",
+	"every",
+	"first",
+	"found",
+	"great",
+	"house",
+	"large",
+	"learn",
+	"never",
+	"other",
+	"place",
+	"plant",
+	"point",
+	"right",
+	"small",
+	"sound",
+	"spell",
+	"still",
+	"study",
+	"their",
+	"there",
+	"these",
+	"thing",
+	"think",
+	"three",
+	"water",
+	"where",
+	"which",
+	"world",
+	"would",
+	"write"
+];
+
+function checkPassword(input, password) {
+	var pattern = '^';
+	for (var i = 0; i < 5; i++) {
+		var start = i * 6;
+		var end = start + 6;
+		
+		if (start >= input.length) {
+			pattern += '.';
+		} else {
+			pattern += '[' + input.substring(start, Math.min(input.length, end)) + ']';
+		}
+	}
+	pattern += '$';
+	return new RegExp(pattern).test(password);
+}
+
+function showPasswords(input) {
+	var list = '<ul>';
+	for (var i = 0; i < passwords.length; i++) {
+		if (checkPassword(input, passwords[i])) {
+    		list += '<li>' + passwords[i] + '</li>';
+		}
+	}
+	list += '</ul>';
+	document.getElementById('possible').innerHTML = list;
+}
+
+onload = function () {
+	var e = document.getElementById('password');
+	e.oninput = function(event) {
+		var letters = event.srcElement.value;
+		showPasswords(letters);
+	};
+	e.onpropertychange = e.oninput;
+	showPasswords("");
+};
+
+</script>
+
+</body>
+</html>
