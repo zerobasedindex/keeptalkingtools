@@ -1,50 +1,15 @@
 <html>
 <body>
 
+<h1>Password Module</h1>
+Type the available letters in sequence start with the first position (6 characters). When done with a position and only one password left, you are done. Example: Type "axbfeg" to provide these characters as the possibilities for the first position.<br/>
 <input type="text" id="password">
-
 <div id="possible">
 </div>
 
 <script>
 
-var passwords = [
-	"about",
-	"after",
-	"again",
-	"below",
-	"could",
-	"every",
-	"first",
-	"found",
-	"great",
-	"house",
-	"large",
-	"learn",
-	"never",
-	"other",
-	"place",
-	"plant",
-	"point",
-	"right",
-	"small",
-	"sound",
-	"spell",
-	"still",
-	"study",
-	"their",
-	"there",
-	"these",
-	"thing",
-	"think",
-	"three",
-	"water",
-	"where",
-	"which",
-	"world",
-	"would",
-	"write"
-];
+var passwords = ["about","after","again","below","could","every","first","found","great","house","large","learn","never","other","place","plant","point","right","small","sound","spell","still","study","their","there","these","thing","think","three","water","where","which","world","would","write"];
 
 function checkPassword(input, password) {
 	var pattern = '^';
